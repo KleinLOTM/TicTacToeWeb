@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tic-Tac-Toe</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe Multiplayer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Background container -->
-<div id="background"></div>
+  <!-- Background container -->
+  <div id="background"></div>
 
-<!-- Main game container -->
-<div class="main-container">
-    <div id="turnIndicator">Player X's Turn</div>
+  <!-- Main game container -->
+  <div class="main-container">
+      <div id="turnIndicator">Player X's Turn</div>
 
-    <!-- Board -->
-    <div class="board" id="board">
-        <div class="cell" data-index="0"></div>
-        <div class="cell" data-index="1"></div>
-        <div class="cell" data-index="2"></div>
-        <div class="cell" data-index="3"></div>
-        <div class="cell" data-index="4"></div>
-        <div class="cell" data-index="5"></div>
-        <div class="cell" data-index="6"></div>
-        <div class="cell" data-index="7"></div>
-        <div class="cell" data-index="8"></div>
-    </div>
+      <!-- Board -->
+      <div class="board" id="board">
+          <div class="cell" data-index="0"></div>
+          <div class="cell" data-index="1"></div>
+          <div class="cell" data-index="2"></div>
+          <div class="cell" data-index="3"></div>
+          <div class="cell" data-index="4"></div>
+          <div class="cell" data-index="5"></div>
+          <div class="cell" data-index="6"></div>
+          <div class="cell" data-index="7"></div>
+          <div class="cell" data-index="8"></div>
+      </div>
 
-    <!-- Result and buttons -->
-    <div id="result"></div>
-    <button id="resetButton">Reset Game</button>
-</div>
+      <!-- Result and buttons -->
+      <div id="result"></div>
+      <button id="resetButton">Reset Game</button>
+  </div>
 
-<script src="script.js"></script>
+  <!-- Firebase ES Module -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDdYXZJosCZ3gvBWTKFhL6E9FNCi0WESxU",
+      authDomain: "tic-tac-toe-8d046.firebaseapp.com",
+      projectId: "tic-tac-toe-8d046",
+      storageBucket: "tic-tac-toe-8d046.firebasestorage.app",
+      messagingSenderId: "1095284396679",
+      appId: "1:1095284396679:web:3aa64badc14fe610bfde22",
+      measurementId: "G-LSGJZ9VJFV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    window.db = db; // Export for script.js
+  </script>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
